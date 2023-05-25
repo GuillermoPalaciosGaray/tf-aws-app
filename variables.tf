@@ -51,5 +51,23 @@ variable "public_subnet_size" {
 
 variable "az_count" {
   description = "The number of AZs to deploy infrastructure to"
+  type        = number
   default     = 2
+}
+
+
+//----------------------------------------------------------------------
+// Security Groups Variables
+//----------------------------------------------------------------------
+
+variable "alb_sg_name" {
+  description = "Name of the ALB Security Group"
+  type        = string
+  default     = "alb_security_group"
+}
+
+variable "ec2_sg_name" {
+  description = "Name of the Private Security Group for EC2"
+  type        = string
+  default     = "private_ec2_sg"
 }
