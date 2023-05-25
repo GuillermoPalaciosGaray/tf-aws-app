@@ -42,3 +42,14 @@ variable "enable_dns_support" {
   type        = bool
   default     = true
 }
+
+variable "public_subnet_size" {
+  description = "The size of the Public subnet."
+  type        = number
+  default     = 24
+}
+
+variable "az_count" {
+  description = "The number of AZs to deploy infrastructure to"
+  default     = 2
+}
