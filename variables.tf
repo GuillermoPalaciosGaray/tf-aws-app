@@ -71,3 +71,36 @@ variable "ec2_sg_name" {
   type        = string
   default     = "private_ec2_sg"
 }
+
+//----------------------------------------------------------------------
+// Load Balancer Variables
+//----------------------------------------------------------------------
+variable "lb_name" {
+  description = "Name of load balancer."
+  type        = string
+  default     = "ext-alb"
+}
+
+variable "load_balancer_type" {
+  description = "Indicate the type of load balancer."
+  type        = string
+  default     = "application"
+}
+
+variable "is_internal_lb" {
+  description = "Indicate wheter load balancer is internal."
+  type        = bool
+  default     = false
+}
+
+variable "is_enabled_cross_zn_lb" {
+  description = "Indicate wheter cross zone load balancing is enabled."
+  type        = bool
+  default     = true
+}
+
+variable "lb_target_group_name" {
+  description = "Load balancer target group name."
+  type        = string
+  default     = "tg-ext-alb-asg"
+}
