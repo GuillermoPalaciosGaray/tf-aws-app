@@ -30,3 +30,29 @@ data "aws_ami" "amazon_linux" {
 data "template_file" "webserver_launch_configuration_user_data" {
   template = file("${path.module}/template/user_data.sh")
 }
+
+data "aws_iam_policy_document" "assume_role" {
+  statement {
+    effect  = "Allow"
+    sid     = ""
+    actions = ["sts:AssumeRole"]
+
+    principals {
+      type        = "Service"
+      identifiers = ["ec2.amazonaws.com"]
+    }
+  }
+}
+
+data "aws_iam_policy_document" "policy_document" {
+  statement {
+    effect = "Allow"
+
+    actions = [
+      "ec2:*",
+      "ssm:*"
+    ]
+
+    resources = ["*"]
+  }
+}
