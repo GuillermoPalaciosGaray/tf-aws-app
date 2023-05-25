@@ -67,9 +67,9 @@ variable "alb_sg_name" {
 }
 
 variable "ec2_sg_name" {
-  description = "Name of the Private Security Group for EC2"
+  description = "Name of the Public Security Group for EC2"
   type        = string
-  default     = "private_ec2_sg"
+  default     = "public_ec2_sg"
 }
 
 //----------------------------------------------------------------------
@@ -139,7 +139,7 @@ variable "volume_size" {
 variable "associate_public_ip_address" {
   description = "Indicate wheter associate_public_ip_address"
   type    = bool
-  default = false
+  default = true
 }
 
 variable "autoscaling_group_name" {

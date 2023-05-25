@@ -45,6 +45,6 @@ resource "aws_autoscaling_policy" "decrease_policy" {
   name                   = "Decrease_Policy"
   scaling_adjustment     = -1
   adjustment_type        = "ChangeInCapacity"
-  cooldown               = 300
+  cooldown               = 60
   autoscaling_group_name = aws_autoscaling_group.autoscaling_group.name
 }
