@@ -104,3 +104,12 @@ variable "lb_target_group_name" {
   type        = string
   default     = "tg-ext-alb-asg"
 }
+
+//----------------------------------------------------------------------
+// Key Pair Variables
+//----------------------------------------------------------------------
+variable "aws_key_pair_name" {
+    description = "AWS EC2 Key pair needed to be associated with EC2."
+    type        =  string
+    default     = "terraform-managed-key"
+}
