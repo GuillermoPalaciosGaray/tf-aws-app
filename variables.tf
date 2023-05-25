@@ -127,7 +127,7 @@ variable "launch_configuration_name" {
 variable "instance_type" {
   description = "The instance type for EC2 instances."
   type        = string
-  default     = "t3.small"
+  default     = "t2.micro"
 }
 
 variable "volume_size" {
