@@ -162,3 +162,13 @@ variable "health_check_type" {
   type    = string
   default = "EC2"
 }
+
+//----------------------------------------------------------------------
+// CloudWatch
+//----------------------------------------------------------------------
+
+variable "cw_alarm_name" {
+  description = "Cloud Watch Alarm Name."
+  type        = string
+  default     = "cloudwatch_alarm"
+}
