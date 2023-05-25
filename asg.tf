@@ -17,13 +17,14 @@ resource "aws_launch_configuration" "launch_configuration" {
 }
 
 resource "aws_autoscaling_group" "autoscaling_group" {
-  name                 = var.autoscaling_group_name
-  max_size             = var.max_instance_size
-  min_size             = var.min_instance_size
-  vpc_zone_identifier  = tolist(aws_subnet.public_subnets.*.id) 
-  launch_configuration = aws_launch_configuration.launch_configuration.name
-  health_check_type    = var.health_check_type
-  target_group_arns    = [aws_lb_target_group.target_group.arn]
+  name                    = var.autoscaling_group_name
+  max_size                = var.max_instance_size
+  min_size                = var.min_instance_size
+  vpc_zone_identifier     = tolist(aws_subnet.public_subnets.*.id) 
+  launch_configuration    = aws_launch_configuration.launch_configuration.name
+  health_check_type       = var.health_check_type
+  target_group_arns       = [aws_lb_target_group.target_group.arn]
+  default_instance_warmup = 30
 
 }
 
