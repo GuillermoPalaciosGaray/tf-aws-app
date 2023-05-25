@@ -113,3 +113,52 @@ variable "aws_key_pair_name" {
     type        =  string
     default     = "terraform-managed-key"
 }
+
+//----------------------------------------------------------------------
+// Auto Scaling Group Variables
+//----------------------------------------------------------------------
+
+variable "launch_configuration_name" {
+  description = "The name for launch configuration."
+  type        = string
+  default     = "web-lc"
+}
+
+variable "instance_type" {
+  description = "The instance type for EC2 instances."
+  type        = string
+  default     = "t3.small"
+}
+
+variable "volume_size" {
+  description = "Size of root EBS volume of the container instance."
+  type        = number
+  default     = 8
+}
+
+variable "associate_public_ip_address" {
+  description = "Indicate wheter associate_public_ip_address"
+  type    = bool
+  default = false
+}
+
+variable "autoscaling_group_name" {
+  description = "The name for the autoscaling group for the web."
+  default     = "web-asg"
+}
+
+variable "max_instance_size" {
+  description = "The max instances number for the webserver."
+  default     = 4
+}
+
+variable "min_instance_size" {
+  description = "The min instance number for the webserver."
+  default     = 1
+}
+
+variable "health_check_type" {
+  description = "Auto Scaling Group health Check Type."
+  type    = string
+  default = "EC2"
+}
