@@ -19,7 +19,7 @@ resource "aws_security_group" "alb_security_group" {
 }
 resource "aws_security_group" "ec2_security_group" {
   name        = var.ec2_sg_name 
-  description = "Private EC2 security group"
+  description = "Public EC2 security group"
   vpc_id      = aws_vpc.vpc.id
 
   ingress {
