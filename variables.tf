@@ -118,8 +118,8 @@ variable "aws_key_pair_name" {
 // Auto Scaling Group Variables
 //----------------------------------------------------------------------
 
-variable "launch_configuration_name" {
-  description = "The name for launch configuration."
+variable "launch_template_name" {
+  description = "The name for launch template."
   type        = string
   default     = "web-lc"
 }
@@ -130,10 +130,34 @@ variable "instance_type" {
   default     = "t2.micro"
 }
 
+variable "device_name" {
+  description = "Storage device name."
+  type        = string
+  default     =  "/dev/xvda"
+}
+
 variable "volume_size" {
   description = "Size of root EBS volume of the container instance."
   type        = number
   default     = 8
+}
+
+variable "volume_type" {
+  description = "Volume type of the container instance."
+  type        = string
+  default     = "gp2"
+}
+
+variable "is_delete_on_termination" {
+  description = "Indicate whether the volume should be destroyed on instance termination."
+  type    = bool
+  default = true
+}
+
+variable "is_volume_encrypted" {
+  description = "Indicate whether the EBS encryption is enabeld on the volume."
+  type    = bool
+  default = true
 }
 
 variable "associate_public_ip_address" {

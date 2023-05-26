@@ -47,6 +47,6 @@ resource "aws_lb_target_group" "target_group" {
     var.tags,
     {
       "Name" = var.lb_target_group_name
-    },
+    }
   )
 }
