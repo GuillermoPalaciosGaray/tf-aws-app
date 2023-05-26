@@ -27,10 +27,6 @@ data "aws_ami" "amazon_linux" {
   }
 }
 
-data "template_file" "webserver_launch_configuration_user_data" {
-  template = file("${path.module}/template/user_data.sh")
-}
-
 data "aws_iam_policy_document" "assume_role" {
   statement {
     effect  = "Allow"
