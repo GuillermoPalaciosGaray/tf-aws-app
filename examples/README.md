@@ -6,7 +6,7 @@ You should have installed terraform on your device
 ## Providers
 |Name||Version|
 |----||-------|
-|<a name="provider_aws"></a> [aws](#provider\aws)| gt 4.22|
+|<a name="provider_aws"></a> [aws](#provider\_aws)| gt 4.22|
 
 ## Modules
 |Name|Source|Version|
