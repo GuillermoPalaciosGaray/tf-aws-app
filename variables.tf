@@ -178,7 +178,7 @@ variable "max_instance_size" {
 
 variable "min_instance_size" {
   description = "The min instance number for the webserver."
-  default     = 1
+  default     = 2
 }
 
 variable "health_check_type" {
