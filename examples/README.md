@@ -4,8 +4,8 @@
 You should have installed terraform on your device
 
 ## Providers
-|Name||Version|
-|----||-------|
+|Name|Version|
+|----|-------|
 |<a name="provider_aws"></a> [aws](#provider\_aws)| gt 4.22|
 
 ## Modules
@@ -26,7 +26,7 @@ You should have installed terraform on your device
 
 ## Inputs
 |Name|Description|Type|Default|
-|----|-----------||---|-------|
+|----|-----------|---|-------|
 |region|AWS Region where the resources are going to be deployed|string|us-east-1|
 |tags|Tags to propogate to all supported resources|map(string)|"terraform_managed" = "true"|
 |vpc_name|Name of the VPC to create|string|Primary VPCZ|
