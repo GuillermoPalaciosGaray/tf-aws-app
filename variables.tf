@@ -174,16 +174,19 @@ variable "associate_public_ip_address" {
 
 variable "autoscaling_group_name" {
   description = "The name for the autoscaling group for the web."
+  type        = string
   default     = "web-asg"
 }
 
 variable "max_instance_size" {
   description = "The max instances number for the webserver."
+  type        = number
   default     = 4
 }
 
 variable "min_instance_size" {
   description = "The min instance number for the webserver."
+  type        = number
   default     = 2
 }
 
@@ -208,21 +211,25 @@ variable "cw_alarm_name" {
 //----------------------------------------------------------------------
 
 variable "s3_bucket_name"{
-    default = "lb-access-logs-s3"
-    type    = string
+    description = "S3 bucket name"
+    default     = "lb-access-logs-s3"
+    type        = string
 }
 
 variable "acl"{
-    default = "private"
-    type    = string
+    description = "S3 bucket ACL type"
+    default     = "private"
+    type        = string
 }
 
 variable "expiration_days"{
+    description = "S3 expiration time for all objects"
     default = 30
     type    = number
 }
 
 variable "force_destroy"{
+    description = "Indicate wheter force to destroy the S3 bucket"
     default = true
     type    = bool
 }
