@@ -28,7 +28,7 @@ You should have installed terraform on your device
 |Name|Description|Type|Default|
 |----|-----------||---|-------|
 |region|AWS Region where the resources are going to be deployed|string|us-east-1|
-|tags|Tags to propogate to all supported resources|map(string)|{"terraform_managed" = "true"}|
+|tags|Tags to propogate to all supported resources|map(string)|"terraform_managed" = "true"|
 |vpc_name|Name of the VPC to create|string|Primary VPCZ|
 |vpc_cidr|CIDR associated with the VPC to be created|string|10.1.0.0/16|
 |enable_dns_hostnames|Should be true to enable DNS hostnames in the VPC|bool|true|
@@ -58,6 +58,6 @@ You should have installed terraform on your device
 |health_check_type|Auto Scaling Group health Check Type|string|EC2|
 |cw_alarm_name|Cloud Watch Alarm Name|string|cloudwatch_alarm|
 |s3_bucket_name|S3 bucket Name|string||lb-access-logs-s3|
-|acl|S3 bucket ACL type|private|string|
-|expiration_days|S3 expiration time for all objects|30|number|
-|force_destroy|Indicate wheter force to destroy the S3 bucket|true|
+|acl|S3 bucket ACL type|string|private|
+|expiration_days|S3 expiration time for all objects|number|30|
+|force_destroy|Indicate wheter force to destroy the S3 bucket|bool|true|
