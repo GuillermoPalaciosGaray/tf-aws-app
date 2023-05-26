@@ -52,3 +52,51 @@ data "aws_iam_policy_document" "policy_document" {
     resources = ["*"]
   }
 }
+
+data "aws_elb_service_account" "main" {}
+
+data "aws_caller_identity" "current" {}
+
+data "aws_iam_policy_document" "s3_bucket_lb_write" {
+  policy_id = "s3_bucket_lb_logs"
+
+  statement {
+    actions = [
+      "s3:PutObject",
+    ]
+    effect = "Allow"
+    resources = [
+      "arn:aws:s3:::${var.s3_bucket_name}/*/AWSLogs/${data.aws_caller_identity.current.account_id}/*",
+    ]
+
+    principals {
+      identifiers = [data.aws_elb_service_account.main.arn]
+      type        = "AWS"
+    }
+  }
+
+  statement {
+    actions = [
+      "s3:PutObject"
+    ]
+    effect = "Allow"
+    resources = ["${aws_s3_bucket.s3_bucket.arn}/*"]
+    principals {
+      identifiers = ["delivery.logs.amazonaws.com"]
+      type        = "Service"
+    }
+  }
+
+
+  statement {
+    actions = [
+      "s3:GetBucketAcl"
+    ]
+    effect = "Allow"
+    resources = [aws_s3_bucket.s3_bucket.arn]
+    principals {
+      identifiers = ["delivery.logs.amazonaws.com"]
+      type        = "Service"
+    }
+  }
+}

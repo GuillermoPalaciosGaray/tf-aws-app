@@ -188,11 +188,35 @@ variable "health_check_type" {
 }
 
 //----------------------------------------------------------------------
-// CloudWatch
+// CloudWatch Variables
 //----------------------------------------------------------------------
 
 variable "cw_alarm_name" {
   description = "Cloud Watch Alarm Name."
   type        = string
   default     = "cloudwatch_alarm"
+}
+
+//----------------------------------------------------------------------
+// S3 Bucket Variables
+//----------------------------------------------------------------------
+
+variable "s3_bucket_name"{
+    default = "lb-access-logs-s3"
+    type    = string
+}
+
+variable "acl"{
+    default = "private"
+    type    = string
+}
+
+variable "expiration_days"{
+    default = 30
+    type    = number
+}
+
+variable "force_destroy"{
+    default = false
+    type    = bool
 }
