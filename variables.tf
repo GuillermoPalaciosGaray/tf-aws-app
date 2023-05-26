@@ -223,6 +223,6 @@ variable "expiration_days"{
 }
 
 variable "force_destroy"{
-    default = false
+    default = true
     type    = bool
 }
