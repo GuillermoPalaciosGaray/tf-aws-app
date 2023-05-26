@@ -105,6 +105,12 @@ variable "lb_target_group_name" {
   default     = "tg-ext-alb-asg"
 }
 
+variable "is_access_logs_enabled" {
+  description = "Indicate wheter load balancer access logs are enabled."
+  type        = bool
+  default     = true
+}
+
 //----------------------------------------------------------------------
 // Key Pair Variables
 //----------------------------------------------------------------------

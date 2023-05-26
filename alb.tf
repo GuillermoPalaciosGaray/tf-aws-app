@@ -7,6 +7,12 @@ resource "aws_lb" "load_balancer" {
   security_groups                  = [aws_security_group.alb_security_group.id]
   idle_timeout                     = 60
   
+  access_logs {
+    bucket  = aws_s3_bucket.s3_bucket.id
+    prefix  = "${var.lb_name}/access-logs"
+    enabled = var.is_access_logs_enabled
+  }
+
   tags = merge(
     var.tags,
     {
